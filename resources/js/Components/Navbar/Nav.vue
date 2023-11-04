@@ -7,9 +7,9 @@ export default {
     data: function () {
         return {
             navigation: [
-                { name: "About", href: "#" },
-                { name: "Applications", href: "#" },
-                { name: "Interviews", href: "#" },
+                { name: "About", href: "#about" },
+                { name: "Applications", href: "#applications" },
+                { name: "Interviews", href: "#interviews" },
             ],
             mobileMenuOpen: false,
         };
@@ -17,7 +17,7 @@ export default {
 };
 </script>
 <template>
-    <header class="bg-white">
+    <header class="bg-white border-solid border-b border-gray-900/10">
         <nav class="mx-auto flex max-w-7xl items-baseline justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex items-baseline gap-x-12">
                 <a href="#" class="-m-1.5 p-1.5">
@@ -59,12 +59,8 @@ export default {
             >
                 <div class="flex items-baseline justify-between">
                     <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
-                        <img
-                            class="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                            alt=""
-                        />
+                        <span class="sr-only">Noted.</span>
+                        <h1 class="font-bold text-3xl">Noted.</h1>
                     </a>
                     <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
                         <span class="sr-only">Close menu</span>

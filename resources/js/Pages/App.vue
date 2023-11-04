@@ -1,8 +1,8 @@
 <script>
-import NavBar from "../components/navbar/Nav.vue";
-import Footer from "../components/footer/Footer.vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
+
 export default {
-    components: { NavBar, Footer },
+    components: { AppLayout },
     data: function () {
         return {};
     },
@@ -10,9 +10,11 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col h-screen justify-between">
-        <NavBar />
-
-        <Footer />
-    </div>
+    <AppLayout>
+        <div class="container mx-auto px-4 flex-grow">
+            <div id="about">About</div>
+            <div id="applications">Applications</div>
+            <div id="interviews">Interviews</div>
+        </div>
+    </AppLayout>
 </template>
