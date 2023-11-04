@@ -22,6 +22,9 @@ return new class extends Migration
             $table->text('note')->nullable();
             $table->string('found_on')->nullable();
             $table->string('projected_salary')->nullable();
+            $table->boolean('offered_role')->default(false);
+            $table->text('offer_note')->nullable();
+            $table->boolean('accepted')->nullable();
             $table->timestamps();
         });
     }
