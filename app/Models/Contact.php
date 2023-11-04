@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     use HasFactory;
+
+    /**
+     * Get the parent contactable model.
+     */
+    public function contactable()
+    {
+        return $this->morphTo();
+    }
 }
