@@ -25,6 +25,8 @@ class JobApplicationFactory extends Factory
         return [
             'company' => fake()->company(),
             'role' => fake()->randomElement($roles),
+            'website' => fake()->domainName(),
+            'mission' => fake()->bs(),
             'location_type' => LocationType::randomValue(),
             'location' => fake()->address(),
             'date_applied' => now(),

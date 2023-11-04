@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
             $table->string('company');
+            $table->string('website');
+            $table->string('mission');
             $table->string('role');
             $table->tinyInteger('location_type');
             $table->string('location')->nullable();

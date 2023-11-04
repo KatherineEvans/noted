@@ -23,7 +23,7 @@ class ContactFactory extends Factory
 
         return [
             'name' => fake()->name(),
-            'email' => fake()->email(),
+            'email' => fake()->safeEmail(),
             'role' => fake()->randomElement($job_titles),
         ];
     }
