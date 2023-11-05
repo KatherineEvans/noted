@@ -8,6 +8,7 @@ export default {
         return {
             navigation: [
                 { name: "About", href: "#about" },
+                { name: "Dashboard", href: "#dashboard" },
                 { name: "Applications", href: "#applications" },
                 { name: "Interviews", href: "#interviews" },
             ],
