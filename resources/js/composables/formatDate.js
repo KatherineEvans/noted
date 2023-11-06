@@ -5,7 +5,12 @@ export function formatDate() {
         return moment(date).format("ll");
     }
 
+    function dateTimeFormatter(date) {
+        return moment(date).format("LLL");
+    }
+
     return {
         dateFormatter,
+        dateTimeFormatter,
     };
 }
