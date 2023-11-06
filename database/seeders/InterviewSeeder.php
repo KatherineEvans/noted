@@ -13,7 +13,7 @@ class InterviewSeeder extends Seeder
     public function run(): void
     {
         // Random fake job apps
-        JobApplication::factory()->count(5)->create();
+        JobApplication::factory()->create();
 
         // Add interviews for each
         JobApplication::all()->each(function ($job_app) {

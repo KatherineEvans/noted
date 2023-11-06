@@ -13,8 +13,8 @@ class PageController extends Controller
     public function home()
     {
         return Inertia::render('App', [
-            'interviews' => Interview::all(),
-            'jobApplications' => JobApplication::with('interviews', 'contacts')->get()
+            'interviews' => Interview::with('contacts', 'jobApplication')->orderBy('date_interviewed', 'desc')->take(6)->get(),
+            'jobApplications' => JobApplication::with('interviews', 'contacts')->orderBy('date_applied', 'desc')->take(10)->get()
         ]);
     }
 }

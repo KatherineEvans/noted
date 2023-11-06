@@ -29,7 +29,7 @@ class JobApplicationFactory extends Factory
             'mission' => fake()->bs(),
             'location_type' => LocationType::randomValue(),
             'location' => fake()->address(),
-            'date_applied' => fake()->dateTimeBetween($startDate = '-3 months', $endDate = 'now'),
+            'date_applied' => fake()->dateTimeBetween($startDate = '-3 months', $endDate = '-1 week'),
             'status'  => ApplicationStatus::randomValue(),
             'note' => fake()->text($maxNbChars = 200),
             'found_on' => fake()->randomElement($job_boards),
