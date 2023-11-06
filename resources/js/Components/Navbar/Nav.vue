@@ -7,8 +7,7 @@ export default {
     data: function () {
         return {
             navigation: [
-                { name: "About", href: "#about" },
-                { name: "Dashboard", href: "#dashboard" },
+                { name: "Highlights", href: "#dashboard" },
                 { name: "Applications", href: "#applications" },
                 { name: "Interviews", href: "#interviews" },
             ],
@@ -19,7 +18,7 @@ export default {
 </script>
 <template>
     <header class="bg-white border-solid border-b border-gray-900/10">
-        <nav class="mx-auto flex max-w-7xl items-baseline justify-between p-6 lg:px-8" aria-label="Global">
+        <nav class="mx-auto flex max-w-7xl items-baseline justify-between p-6 lg:px-4" aria-label="Global">
             <div class="flex items-baseline gap-x-12">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Noted.</span>
