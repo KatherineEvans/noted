@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->timestamp('date_applied')->nullable();
             $table->tinyInteger('status')->default(1);
-            $table->text('note')->nullable();
             $table->string('found_on')->nullable();
             $table->string('projected_salary')->nullable();
             $table->boolean('offered_role')->default(false);

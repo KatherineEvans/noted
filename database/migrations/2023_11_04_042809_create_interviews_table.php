@@ -17,7 +17,6 @@ return new class extends Migration
             $table->timestamp('date_interviewed');
             $table->tinyInteger('round');
             $table->tinyInteger('type');
-            $table->text('note');
             $table->timestamps();
         });
     }

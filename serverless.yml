@@ -1,0 +1,78 @@
+service: laravel
+
+provider:
+    name: aws
+    # The AWS region in which to deploy (us-east-1 is the default)
+    region: us-east-1
+    # Environment variables
+    environment:
+        APP_ENV: production # Or use ${sls:stage} if you want the environment to match the stage
+        LOG_CHANNEL: cloudwatch
+        DB_CONNECTION: mysql
+        DB_HOST: ${ssm:/noted/db-host}
+        DB_PORT: 3306
+        DB_DATABASE: mysql
+        DB_USERNAME: ${ssm:/noted/db-username}
+        DB_PASSWORD: ${ssm:/noted/db-password}
+
+package:
+    # Files and directories to exclude from deployment
+    patterns:
+        - '!node_modules/**'
+        - '!public/storage'
+        - '!resources/assets/**'
+        - '!storage/**'
+        - '!tests/**'
+
+functions:
+    # This function runs the Laravel website/API
+    web:
+        handler: public/index.php
+        runtime: php-81-fpm
+        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
+        events:
+            - httpApi: '*'
+        vpc:
+            securityGroupIds:
+                - sg-c99e4c9d
+            subnetIds:
+                - subnet-2708ce29
+                - subnet-04c6cf58
+                - subnet-7002de3d
+                - subnet-de9992f0
+                - subnet-d82172e6
+                - subnet-64505c03
+
+    # This function lets us run artisan commands in Lambda
+    artisan:
+        handler: artisan
+        runtime: php-81-console
+        timeout: 720 # in seconds
+        # Uncomment to also run the scheduler every minute
+        #events:
+        #    - schedule:
+        #          rate: rate(1 minute)
+        #          input: '"schedule:run"'
+
+    hello:
+        handler: migrate-function.php
+        runtime: php-81-console
+
+    migrate:
+        handler: commands/migrate.handler
+        runtime: php-81-console
+        vpc:
+            securityGroupIds:
+                - sg-c99e4c9d
+            subnetIds:
+                - subnet-2708ce29
+                - subnet-04c6cf58
+                - subnet-7002de3d
+                - subnet-de9992f0
+                - subnet-d82172e6
+                - subnet-64505c03
+
+plugins:
+    # We need to include the Bref plugin
+    - ./vendor/bref/bref
+

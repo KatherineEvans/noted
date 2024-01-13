@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "migrate": "serverless invoke -f migrate --stage prod"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^4.4.0",
@@ -25,6 +26,7 @@
         "@inertiajs/vue3": "^1.0.14",
         "chart.js": "^4.4.0",
         "moment": "^2.29.4",
+        "pinia": "^2.1.7",
         "vue-chartjs": "^5.2.0"
     }
 }

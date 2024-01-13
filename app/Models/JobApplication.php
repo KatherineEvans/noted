@@ -15,7 +15,7 @@ class JobApplication extends Model
     {
         return ApplicationStatus::from($this->status);
     }
-
+    
     /** RELATIONSHIPS */ 
     public function interviews()
     {
