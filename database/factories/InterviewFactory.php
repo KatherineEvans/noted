@@ -22,7 +22,6 @@ class InterviewFactory extends Factory
             'date_interviewed' => fake()->dateTimeBetween($startDate = '-1 week', $endDate = 'now'),
             'round' => rand(1, 5),
             'type' => InterviewType::randomValue(),
-            'note' => fake()->text($maxNbChars = 200)
         ];
     }
 }
